@@ -10,7 +10,7 @@ export default class ErrorParserMiddleware {
 	 * @param {import("express").Response} res
 	 * @param {import("express").NextFunction} next
 	 */
-	static handle = (err, req, res, next) => {
+	static handle = (err, _, res) => {
 		let { statusCode, message } = err;
 
 		if (config.env === "production" && !err.isOperational) {
