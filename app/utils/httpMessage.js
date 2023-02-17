@@ -1,0 +1,17 @@
+export const httpMessages = {
+	200: "OK",
+	201: "Created",
+	400: "Bad Request",
+	401: "Unauthorized",
+	403: "Forbidden",
+	404: "Not Found",
+	500: "Internal Server Error",
+	502: "Bad Gateway",
+	503: "Service Unavailable",
+	504: "Gateway Timeout",
+	505: "HTTP Version Not Supported",
+	511: "Network Authentication Required",
+	599: "Network Connect Timeout Error",
+	510: "Not Extended",
+	598: "Network Read Timeout Error",
+};

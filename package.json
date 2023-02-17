@@ -1,0 +1,26 @@
+{
+	"name": "event-boy-be-example",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "nodemon --exec babel-node app/index.js",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"mongoose": "^6.9.2",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.20",
+		"winston": "^3.8.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.20.12",
+		"@babel/node": "^7.20.7",
+		"@babel/preset-env": "^7.20.2",
+		"babel-plugin-module-resolver": "^5.0.0",
+		"eslint": "^8.34.0"
+	}
+}
