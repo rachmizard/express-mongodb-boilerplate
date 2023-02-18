@@ -1,7 +1,10 @@
 import ApiError from "../exceptions/ApiError";
+
 import ErrorMiddleware from "../middlewares/Error";
 import ErrorParserMiddleware from "../middlewares/ErrorParser";
+
 import rootRoutes from "../routes/index";
+
 import { httpMessages } from "../utils/httpMessage";
 import HttpStatus from "../utils/httpStatus";
 

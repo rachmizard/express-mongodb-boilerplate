@@ -21,7 +21,6 @@ export default class ErrorMiddleware {
 			const message = error.message || httpMessages[statusCode];
 			error = new ApiError(statusCode, message, false, err.stack);
 		}
-
 		next(error);
 	};
 }

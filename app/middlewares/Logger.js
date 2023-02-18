@@ -10,7 +10,7 @@ export default class LoggerMiddleware {
 	 * @param {import("express").Response} res
 	 * @param {import("express").NextFunction} next
 	 */
-	static async handle(req, res, next) {
+	static handle = async (req, res, next) => {
 		const stream = {
 			write: (message) => logger.http(message),
 		};
@@ -28,5 +28,5 @@ export default class LoggerMiddleware {
 			":remote-addr :method :url :status :res[content-length] - :response-time ms",
 			options
 		)(req, res, next);
-	}
+	};
 }

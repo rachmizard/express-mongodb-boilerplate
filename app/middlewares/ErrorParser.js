@@ -10,9 +10,8 @@ export default class ErrorParserMiddleware {
 	 * @param {import("express").Response} res
 	 * @param {import("express").NextFunction} next
 	 */
-	static handle = (err, _, res) => {
+	static handle = (err, req, res, next) => {
 		let { statusCode, message } = err;
-
 		if (config.env === "production" && !err.isOperational) {
 			statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
 			message = HttpStatus[HttpStatus.INTERNAL_SERVER_ERROR];
