@@ -1,6 +1,7 @@
 import { config } from "../utils/config";
 import HttpStatus from "../utils/httpStatus";
 import logger from "../utils/logger";
+import ApiResponse from "../utils/response/ApiResponse";
 
 export default class ErrorParserMiddleware {
 	/**
@@ -19,11 +20,11 @@ export default class ErrorParserMiddleware {
 
 		res.locals.errorMessage = err.message;
 
-		const response = {
-			code: statusCode,
+		const response = ApiResponse.send({
+			statusCode,
 			message,
 			...(config.env === "development" && { stack: err.stack }),
-		};
+		})(res, req, next);
 
 		if (config.env === "development") {
 			logger.error(err);
