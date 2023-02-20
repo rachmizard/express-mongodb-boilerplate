@@ -1,7 +1,7 @@
 import morgan from "morgan";
 
-import logger from "app/utils/logger";
-import { config } from "app/utils/config";
+import logger from "core/utils/logger";
+import { config } from "core/utils/config";
 
 export default class LoggerMiddleware {
 	/**

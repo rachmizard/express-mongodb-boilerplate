@@ -1,0 +1,92 @@
+import { ApiResponse } from "core";
+import ExampleService from "./example.service";
+
+class ExampleController {
+	/**
+	 *
+	 * @param {import("express").Request} req
+	 * @param {import("express").Response} res
+	 * @param {import("express").NextFunction} next
+	 */
+	static async index(req, res) {
+		const data = await ExampleService.getList();
+
+        return ApiResponse.sendOk({
+            message: "Example data fetched successfully",
+			data
+        })(res)
+    }
+
+	/**
+	 *
+	 * @param {import("express").Request} req
+	 * @param {import("express").Response} res
+	 * @param {import("express").NextFunction} next
+	 */
+	static async show(req, res) {
+		const { id } = req.params;
+
+		const data = await ExampleService.getById(id);
+
+		return ApiResponse.sendOk({
+			message: "Example data fetched successfully",
+			data
+		})(res)
+	}
+
+	/**
+	 *
+	 * @param {import("express").Request} req
+	 * @param {import("express").Response} res
+	 * @param {import("express").NextFunction} next
+	 */
+	static async create(req, res) {
+		const { body } = req;
+
+		const data = await ExampleService.create(body);
+
+		return ApiResponse.sendOk({
+			message: "Example data created successfully",
+			data
+		})(res)
+	}
+
+	/**
+	 *
+	 * @param {import("express").Request} req
+	 * @param {import("express").Response} res
+	 * @param {import("express").NextFunction} next
+	 */
+	static async update(req, res) {
+		const { body } = req;
+		const { id } = req.params;
+
+		const data = await ExampleService.update(id, body);
+
+		return ApiResponse.sendOk({
+			message: "Example data updated successfully",
+			data
+		})(res)
+	}
+
+	/**
+	 *
+	 * @param {import("express").Request} req
+	 * @param {import("express").Response} res
+	 * @param {import("express").NextFunction} next
+	 */
+	static async delete(req, res) {
+		const { id } = req.params;
+
+		const data = await ExampleService.delete(id);
+
+		return ApiResponse.sendOk({
+			message: "Example data deleted successfully",
+			data
+		})(res)
+	}
+
+
+}
+
+export default ExampleController;

@@ -2,7 +2,7 @@ class PassportServiceProvider {
 	/**
 	 *
 	 * @param {import("express").Application} app
-	 * @param {import("../utils/passport").default} passport
+	 * @param {import("core/utils/passport").default} passport
 	 */
 	constructor(app, passport) {
 		this.app = app;

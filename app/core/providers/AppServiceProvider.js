@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 import express from "express";
 
-import { config } from "app/utils/config";
-import logger from "app/utils/logger";
+import CorsMiddleware from "core/middlewares/Cors";
+import LoggerMiddleware from "core/middlewares/Logger";
 
-import CorsMiddleware from "../middlewares/Cors";
-import LoggerMiddleware from "../middlewares/Logger";
+import { config } from "core/utils/config";
+import logger from "core/utils/logger";
 
 dotenv.config();
 

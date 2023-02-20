@@ -8,6 +8,7 @@ module.exports = {
 			"module-resolver",
 			{
 				root: [path.resolve(jsConfig.compilerOptions.baseUrl)],
+				alias: jsConfig.compilerOptions.paths,
 			},
 		],
 	],

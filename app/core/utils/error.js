@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import ApiError from "../exceptions/ApiError";
+import ApiError from "exceptions/ApiError";
 import { config } from "./config";
 import { httpMessages } from "./httpMessage";
 import HttpStatus from "./httpStatus";

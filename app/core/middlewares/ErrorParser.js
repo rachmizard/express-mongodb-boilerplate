@@ -1,7 +1,7 @@
-import { config } from "../utils/config";
-import HttpStatus from "../utils/httpStatus";
-import logger from "../utils/logger";
-import ApiResponse from "../utils/response/ApiResponse";
+import { config } from "core/utils/config";
+import HttpStatus from "core/utils/httpStatus";
+import logger from "core/utils/logger";
+import ApiResponse from "core/utils/response/ApiResponse";
 
 export default class ErrorParserMiddleware {
 	/**

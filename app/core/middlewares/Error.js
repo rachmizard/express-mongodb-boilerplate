@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import ApiError from "../exceptions/ApiError";
-import { httpMessages } from "../utils/httpMessage";
-import HttpStatus from "../utils/httpStatus";
+import ApiError from "core/exceptions/ApiError";
+import { httpMessages } from "core/utils/httpMessage";
+import HttpStatus from "core/utils/httpStatus";
 
 export default class ErrorMiddleware {
 	/**

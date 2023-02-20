@@ -1,4 +1,4 @@
-import HttpStatus from "../httpStatus";
+import HttpStatus from "core/utils/httpStatus";
 
 export default class ApiResponse {
 	/**

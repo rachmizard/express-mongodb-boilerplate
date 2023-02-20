@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { config } from "../utils/config";
-import logger from "../utils/logger";
+import { config } from "core/utils/config";
+import logger from "core/utils/logger";
 
 export default class MongoServiceProvider {
 	/**

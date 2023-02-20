@@ -1,7 +1,9 @@
-import { AuthService, TokenService, UserService } from "../services";
-import ApiResponse from "../utils/response/ApiResponse";
+import { ApiResponse, TokenService, UserService } from "core";
+import AuthService from "./auth.service";
 
-class AuthController {
+export default class AuthController {
+	constructor() {}
+
 	static async signIn(req, res) {
 		const { email, password } = req.body;
 
@@ -9,6 +11,7 @@ class AuthController {
 		const token = TokenService.generateToken(user);
 
 		return ApiResponse.sendOk({
+			// add some properties below
 			message: "Sign in successfully",
 			data: {
 				token,
@@ -17,16 +20,11 @@ class AuthController {
 	}
 
 	static async signUp(req, res) {
-		const { email, password, username } = req.body;
-
-		const user = await UserService.createUser({
-			email,
-			password,
-			username,
-		});
+		const user = await UserService.createUser(req.body);
 		const token = TokenService.generateToken(user);
 
 		return ApiResponse.sendOk({
+			// add some properties below
 			message: "Sign up successfully",
 			data: {
 				token,
@@ -34,5 +32,3 @@ class AuthController {
 		})(res);
 	}
 }
-
-export default AuthController;

@@ -1,5 +1,5 @@
-import ApiError from "../exceptions/ApiError";
-import HttpStatus from "../utils/httpStatus";
+import ApiError from "core/exceptions/ApiError";
+import HttpStatus from "core/utils/httpStatus";
 
 export default class CatchAsyncMiddleware {
 	/**

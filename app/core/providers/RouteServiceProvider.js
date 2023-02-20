@@ -1,12 +1,12 @@
-import ApiError from "../exceptions/ApiError";
+import ApiError from "core/exceptions/ApiError";
 
-import ErrorMiddleware from "../middlewares/Error";
-import ErrorParserMiddleware from "../middlewares/ErrorParser";
+import ErrorMiddleware from "core/middlewares/Error";
+import ErrorParserMiddleware from "core/middlewares/ErrorParser";
 
-import rootRoutes from "../routes/index";
+import rootRoutes from "core/routes/index";
 
-import { httpMessages } from "../utils/httpMessage";
-import HttpStatus from "../utils/httpStatus";
+import { httpMessages } from "core/utils/httpMessage";
+import HttpStatus from "core/utils/httpStatus";
 
 export default class RouteServiceProvider {
 	/**
