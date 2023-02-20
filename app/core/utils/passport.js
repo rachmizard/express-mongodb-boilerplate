@@ -3,7 +3,7 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { UserService } from "core/services";
 import { config } from "./config";
 
-export default class Passport {
+class Passport {
 	constructor() {
 		this.passport = passport;
 	}
@@ -41,3 +41,5 @@ export default class Passport {
 		}
 	}
 }
+
+export default Passport;

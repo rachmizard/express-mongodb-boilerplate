@@ -31,7 +31,6 @@ UserSchema.pre("save", async function (next) {
 	if (!this.isModified("password")) {
 		return next();
 	}
-
 	try {
 		const hashedPassword = await Bcrypt.hash(this.password);
 		this.password = hashedPassword;
