@@ -1,9 +1,9 @@
 import { validationResult } from "express-validator";
-import ApiResponse from "../utils/response/ApiResponse";
+import ApiResponse from "core/utils/response/ApiResponse";
 
 class Validator {
-	static validate(validations = []) {
-		return async (req, res, next) => {
+	static handle(validations = []) {
+		return async function (req, res, next) {
 			await Promise.all(
 				validations.map((validation) => validation.run(req))
 			);
@@ -14,7 +14,7 @@ class Validator {
 			}
 
 			return ApiResponse.sendBadRequest({
-				message: "Validation failed",
+				message: "Validation Error",
 				data: errors.array(),
 			})(res);
 		};

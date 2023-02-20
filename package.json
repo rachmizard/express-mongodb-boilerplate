@@ -4,7 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"start": "nodemon --exec babel-node app/index.js",
+		"start": "nodemon --exec babel-node app/core/server.js",
+		"make:module": "node scripts/make-module.js",
 		"lint": "eslint ."
 	},
 	"dependencies": {

@@ -1,12 +1,12 @@
 import { body } from "express-validator";
 
 export const signInValidators = [
-	body("email").isEmail().withMessage("Email kamu salah"),
+	body("email").isEmail().withMessage("Email tidak valid"),
 	body("password")
 		.isLength({
-			min: 8,
+			min: 6,
 		})
-		.withMessage("Password minimal 8 karakter"),
+		.withMessage("Password minimal 6 karakter"),
 ];
 
 export const signUpValidators = [
