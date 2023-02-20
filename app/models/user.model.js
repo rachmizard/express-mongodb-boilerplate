@@ -14,10 +14,15 @@ const UserSchema = new mongoose.Schema({
 			},
 		},
 	},
+	username: {
+		type: String, 
+		required: true,
+		minlength: 3,
+	},
 	password: {
 		type: String,
 		required: true,
-		minlength: 8,
+		minlength: 6,
 		maxlength: 128,
 	},
 });
@@ -36,8 +41,27 @@ UserSchema.pre("save", async function (next) {
 	}
 });
 
-UserSchema.methods.isValidPassword = async function (password) {
+UserSchema.methods.isValidPassword = function (password) {
 	return Bcrypt.compareSync(password, this.password);
 };
+
+UserSchema.statics.isEmailTaken = async function(email) {
+	const user = await this.findOne({
+		email
+	})
+	return !!user;
+};
+
+UserSchema.set("toJSON", {
+	transform: (_, ret) => {
+		delete ret.__v;
+		delete ret.password;
+
+		ret.id = ret._id;
+
+		delete ret._id;
+		return ret;
+	}
+})
 
 export default mongoose.model("User", UserSchema);

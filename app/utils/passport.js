@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
+import { UserService } from "../service";
 import { config } from "./config";
 
 export default class Passport {
@@ -23,16 +24,20 @@ export default class Passport {
 			secretOrKey: config.jwtSecret,
 		};
 
-		return new JwtStrategy(jwtStrategyOptions, this.verify);
+		return new JwtStrategy(jwtStrategyOptions, this.jwtVerifyCallback);
 	}
 
-	verify(payload, done) {
-		const { id, email, role } = payload;
+	async jwtVerifyCallback(payload, done) {
+		try {
+			const user = await UserService.getUserById(payload.sub)
+			
+			if (!user) {
+				return done(null, false)
+			}
 
-		if (id && email && role) {
-			return done(null, { id, email, role });
+			return done(null, user);
+		} catch (error) {
+			return done(error, false);
 		}
-
-		return done(null, false);
 	}
 }
