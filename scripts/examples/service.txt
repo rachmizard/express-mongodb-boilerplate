@@ -1,0 +1,25 @@
+import Example from './example.model';
+
+class ExampleService {
+	static async getList() {
+        return await Example.find();
+	}
+
+    static async getById(id) {
+        return await Example.findById(id);
+    }
+
+    static async create(example) {
+        return await Example.create(example);
+    }
+
+    static async update(id, example) {
+        return await Example.findByIdAndUpdate(id, example, { new: true });
+    }
+
+    static async delete(id) {
+        return await Example.findByIdAndDelete(id);
+    }
+}
+
+export default ExampleService;

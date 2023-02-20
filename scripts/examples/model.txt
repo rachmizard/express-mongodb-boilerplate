@@ -1,0 +1,21 @@
+import mongoose from "mongoose";
+
+const ExampleSchema = new mongoose.Schema({
+    anyProperty: {
+        type: String,
+        required: true,
+    },
+});
+
+ExampleSchema.set("toJSON", {
+	transform: (_, ret) => {
+		delete ret.__v;
+
+		ret.id = ret._id;
+
+		delete ret._id;
+		return ret;
+	},
+});
+
+export default mongoose.model("Example", ExampleSchema);

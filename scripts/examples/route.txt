@@ -1,0 +1,29 @@
+import { Router } from "express";
+import { CatchAsyncMiddleware, ValidatorMiddleware } from "core";
+
+import ExampleController from "./example.controller";
+import { exampleValidators } from "./example.validator";
+
+const exampleRoutes = Router();
+
+exampleRoutes.get("/", CatchAsyncMiddleware.handle(ExampleController.index));
+exampleRoutes.get("/:id", CatchAsyncMiddleware.handle(ExampleController.show));
+
+exampleRoutes.post(
+	"/",
+	ValidatorMiddleware.handle(exampleValidators),
+	CatchAsyncMiddleware.handle(ExampleController.create)
+);
+
+exampleRoutes.put(
+	"/:id",
+	ValidatorMiddleware.handle(exampleValidators),
+	CatchAsyncMiddleware.handle(ExampleController.update)
+);
+
+exampleRoutes.delete(
+	"/:id",
+	CatchAsyncMiddleware.handle(ExampleController.delete)
+);
+
+export default exampleRoutes;
