@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add -D @types/mongoose-bcrypt
+  /usr/local/bin/node /usr/local/bin/yarn add passport-jwt passport-local passport bcryptjsonwebtoken
 
 PATH: 
   /Users/rachmizard/.docker/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/rachmizard/.docker/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/rachmizard/.fig/bin:/Users/rachmizard/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/rachmizard/Library/Android/sdk/emulator:/Users/rachmizard/Library/Android/sdk/tools:/Users/rachmizard/Library/Android/sdk/tools/bin:/Users/rachmizard/Library/Android/sdk/platform-tools:/Users/rachmizard/flutter/bin:/Users/rachmizard/.pub-cache/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/rachmizard/Library/Android/sdk/emulator:/Users/rachmizard/Library/Android/sdk/tools:/Users/rachmizard/Library/Android/sdk/tools/bin:/Users/rachmizard/Library/Android/sdk/platform-tools:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/rachmizard/flutter/bin:/Users/rachmizard/.pub-cache/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fmongoose-bcrypt: Not found
+  Error: https://registry.yarnpkg.com/bcryptjsonwebtoken: Not found
       at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66992:18)
       at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140763:22)
       at Request.emit (node:events:513:28)
