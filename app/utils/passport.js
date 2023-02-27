@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
+import { UserService } from "../services";
 import { config } from "./config";
 
 export default class Passport {
@@ -26,13 +27,16 @@ export default class Passport {
 		return new JwtStrategy(jwtStrategyOptions, this.verify);
 	}
 
-	verify(payload, done) {
-		const { id, email, role } = payload;
+	async verify(payload, done) {
+		try {
+			const user = await UserService.getUserById(payload.sub);
+			if(!user){
+				return done(null, false);
+			}
 
-		if (id && email && role) {
-			return done(null, { id, email, role });
+			return done(null, user);
+		} catch (error) {
+			return done(error, false);
 		}
-
-		return done(null, false);
 	}
 }
