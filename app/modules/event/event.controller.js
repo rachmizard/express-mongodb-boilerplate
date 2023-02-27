@@ -1,4 +1,5 @@
 import { ApiResponse } from "core";
+
 import EventService from "./event.service";
 
 class EventController {
@@ -9,13 +10,13 @@ class EventController {
 	 * @param {import("express").NextFunction} next
 	 */
 	static async index(req, res) {
-		const data = await EventService.getList();
+		const data = await EventService.getList(req.query);
 
-        return ApiResponse.sendOk({
-            message: "Event data fetched successfully",
-			data
-        })(res)
-    }
+		return ApiResponse.sendOk({
+			message: "Event data fetched successfully",
+			data,
+		})(res);
+	}
 
 	/**
 	 *
@@ -30,8 +31,8 @@ class EventController {
 
 		return ApiResponse.sendOk({
 			message: "Event data fetched successfully",
-			data
-		})(res)
+			data,
+		})(res);
 	}
 
 	/**
@@ -47,8 +48,8 @@ class EventController {
 
 		return ApiResponse.sendOk({
 			message: "Event data created successfully",
-			data
-		})(res)
+			data,
+		})(res);
 	}
 
 	/**
@@ -65,8 +66,8 @@ class EventController {
 
 		return ApiResponse.sendOk({
 			message: "Event data updated successfully",
-			data
-		})(res)
+			data,
+		})(res);
 	}
 
 	/**
@@ -82,11 +83,9 @@ class EventController {
 
 		return ApiResponse.sendOk({
 			message: "Event data deleted successfully",
-			data
-		})(res)
+			data,
+		})(res);
 	}
-
-
 }
 
 export default EventController;
