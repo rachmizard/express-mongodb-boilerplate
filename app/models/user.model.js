@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 import Bcrypt from "../utils/bcrypt";
 
 const UserSchema = new mongoose.Schema({
@@ -14,6 +15,11 @@ const UserSchema = new mongoose.Schema({
 			},
 		},
 	},
+	username: {
+		type: String,
+		required: true
+	},
+
 	password: {
 		type: String,
 		required: true,
@@ -36,8 +42,13 @@ UserSchema.pre("save", async function (next) {
 	}
 });
 
-UserSchema.methods.isValidPassword = async function (password) {
+UserSchema.methods.isValidPassword = function (password) {
 	return Bcrypt.compareSync(password, this.password);
+};
+
+UserSchema.statics.isEmailTaken = async function (email) {
+	const user = await this.findOne({email});
+	return !!user;
 };
 
 export default mongoose.model("User", UserSchema);
