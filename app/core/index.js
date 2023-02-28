@@ -8,6 +8,7 @@ export { default as CorsMiddleware } from "./middlewares/Cors";
 export { default as ErrorMiddleware } from "./middlewares/Error";
 export { default as ErrorParserMiddleware } from "./middlewares/ErrorParser";
 export { default as LoggerMiddleware } from "./middlewares/Logger";
+export { default as RoleMiddleware } from "./middlewares/Role";
 export { default as ValidatorMiddleware } from "./middlewares/Validator";
 
 // Models
