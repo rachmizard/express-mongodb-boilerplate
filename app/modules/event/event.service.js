@@ -1,8 +1,11 @@
+import { useFilterEvents } from "./event.hook";
 import Event from "./event.model";
 
 class EventService {
-  static async getList() {
-    return await Event.find({}, "-location -description");
+  static async getList(query = {}) {
+    console.log(query);
+    const { queries, params } = useFilterEvents(query);
+    return await Event.paginate(queries, params);
   }
 
   static async getById(id) {

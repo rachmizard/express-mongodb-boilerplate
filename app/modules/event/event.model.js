@@ -1,3 +1,4 @@
+import paginatePlugin from "core/plugins/paginate.plugin";
 import mongoose from "mongoose";
 
 const EventSchema = new mongoose.Schema({
@@ -59,5 +60,23 @@ EventSchema.set("toJSON", {
     return ret;
   },
 });
+
+EventSchema.index(
+  {
+    title: "text",
+    description: "text",
+    location: "text",
+  },
+  {
+    name: "EventSearchIndex",
+    weights: {
+      title: 5,
+      description: 1,
+      location: 3,
+    },
+  }
+);
+
+EventSchema.plugin(paginatePlugin);
 
 export default mongoose.model("Event", EventSchema);
