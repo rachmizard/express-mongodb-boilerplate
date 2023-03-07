@@ -1,4 +1,7 @@
+import paginatePlugin from "core/models/plugins/paginate.plugin";
 import mongoose from "mongoose";
+
+mongoose.plugin(paginatePlugin);
 
 const EventSchema = new mongoose.Schema({
   title: {
