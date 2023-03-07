@@ -1,8 +1,15 @@
+import { useFilterEvents } from './event.hook';
 import Event from './event.model';
 
 class EventService {
-	static async getList() {
-        return await Event.find();
+	static async getList(options = {}) {
+        const filterEvent = useFilterEvents(options);
+
+        return await Event.paginate(
+            filterEvent.queries,
+            filterEvent.queryParams
+        );
+
 	}
 
     static async getById(id) {

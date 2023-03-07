@@ -9,7 +9,7 @@ class EventController {
 	 * @param {import("express").NextFunction} next
 	 */
 	static async index(req, res) {
-		const data = await EventService.getList();
+		const data = await EventService.getList(req.query);
 
         return ApiResponse.sendOk({
             message: "Event data fetched successfully",
