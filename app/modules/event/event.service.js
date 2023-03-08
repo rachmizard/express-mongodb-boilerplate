@@ -1,17 +1,11 @@
+import { useFilterEvents } from "./event.hook";
 import Event from "./event.model";
 
 class EventService {
   static async getList(options = {}) {
-    const { sort, page, limit } = options;
+    const { query, originalOptions } = useFilterEvents(options);
 
-    return await Event.paginate(
-      {},
-      {
-        sort,
-        page,
-        limit,
-      }
-    );
+    return await Event.paginate(query, originalOptions);
   }
 
   static async getById(id) {

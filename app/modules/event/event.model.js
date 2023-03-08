@@ -56,4 +56,20 @@ EventSchema.set("toJSON", {
   },
 });
 
+EventSchema.index(
+  {
+    title: "text",
+    description: "text",
+    location: "text",
+  },
+  {
+    name: "EventSearchIndex",
+    weights: {
+      title: 5,
+      description: 1,
+      location: 3,
+    },
+  }
+);
+
 export default mongoose.model("Event", EventSchema);
