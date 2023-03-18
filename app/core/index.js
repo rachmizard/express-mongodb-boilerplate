@@ -2,7 +2,6 @@
 export { default as ApiError } from "./exceptions/ApiError";
 
 // Middlewares
-export { default as AuthMiddleware } from "./middlewares/Auth";
 export { default as CatchAsyncMiddleware } from "./middlewares/CatchAsync";
 export { default as CorsMiddleware } from "./middlewares/Cors";
 export { default as ErrorMiddleware } from "./middlewares/Error";
