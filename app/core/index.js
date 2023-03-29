@@ -8,6 +8,7 @@ export { default as ErrorMiddleware } from "./middlewares/Error";
 export { default as ErrorParserMiddleware } from "./middlewares/ErrorParser";
 export { default as LoggerMiddleware } from "./middlewares/Logger";
 export { default as ValidatorMiddleware } from "./middlewares/Validator";
+export { default as AuthMiddleware } from "./middlewares/Auth";
 
 // Models
 export { default as User } from "./models/user.model";

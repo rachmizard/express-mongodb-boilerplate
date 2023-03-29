@@ -3,6 +3,7 @@ import { CatchAsyncMiddleware, ValidatorMiddleware } from "core";
 
 import AuthController from "./auth.controller";
 import { signInValidators, signUpValidators } from "./auth.validator";
+import AuthMiddleware from "./../../core/middlewares/Auth";
 
 const authRoutes = Router();
 
@@ -18,24 +19,8 @@ authRoutes.post(
   CatchAsyncMiddleware.handle(AuthController.signUp)
 );
 
-// authRoutes.get("/", CatchAsyncMiddleware.handle(AuthController.index));
-// authRoutes.get("/:id", CatchAsyncMiddleware.handle(AuthController.show));
-
-// authRoutes.post(
-// 	"/",
-// 	ValidatorMiddleware.handle(authValidators),
-// 	CatchAsyncMiddleware.handle(AuthController.create)
-// );
-
-// authRoutes.put(
-// 	"/:id",
-// 	ValidatorMiddleware.handle(authValidators),
-// 	CatchAsyncMiddleware.handle(AuthController.update)
-// );
-
-// authRoutes.delete(
-// 	"/:id",
-// 	CatchAsyncMiddleware.handle(AuthController.delete)
-// );
+authRoutes.get("/profile", AuthMiddleware.handle, function (req, res) {
+  res.json(req.user);
+});
 
 export default authRoutes;
